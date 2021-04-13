@@ -1,7 +1,7 @@
 package com.board.interceptor;
 
-import org.apache.logging.log4j.Logger;
-import org.mybatis.logging.LoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
@@ -10,20 +10,20 @@ import javax.servlet.http.HttpServletResponse;
 
 public class LoggerInterceptor extends HandlerInterceptorAdapter {
 
-    private final Logger logger = (Logger) LoggerFactory.getLogger(this.getClass());
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        // TODO => 여기 수정 해야함
-        logger.debug("=======================================================");
-        logger.debug("===================== BEGIN ===========================");
-        logger.debug("Request UR");
-        return false;
+        logger.debug("===============================================");
+        logger.debug("==================== BEGIN ====================");
+        logger.debug("Request URI ===> " + request.getRequestURI());
+        return super.preHandle(request, response, handler);
     }
 
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-
+        logger.debug("==================== END ======================");
+        logger.debug("===============================================");
     }
 
 }

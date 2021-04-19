@@ -6,10 +6,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.util.CollectionUtils;
-
-import java.util.Collection;
-import java.util.List;
 
 @SpringBootTest
 public class MapperTests {
@@ -88,12 +84,12 @@ public class MapperTests {
         }
     }
 
-    @Test
+/*    @Test
     public void testSelectList() {
-        int boardTotalCount = mapper.selectBoardTotalCount();
+        int boardTotalCount = mapper.selectBoardTotalCount(1);
 
         if (boardTotalCount > 0) {
-            List<BoardDTO> boardList = mapper.selectBoardList();
+            List<BoardDTO> boardList = mapper.selectBoardList(1);
             if(CollectionUtils.isEmpty(boardList) == false) {
                 for (BoardDTO board : boardList) {
                     System.out.println("=========================================");
@@ -105,5 +101,5 @@ public class MapperTests {
                 }
             }
         }
-    }
+    }*/
 }
